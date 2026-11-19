@@ -3,23 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>GTA VI Trophy Guide &amp; Tracker — 55 Trophies to Platinum</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; 100% offline — no network, no account</p>
+  <h1>VICE CITY <span>TROPHY GUIDE</span></h1>
+  <p class="sub">All 55 official trophies — 1 platinum, 2 gold, 6 silver, 46 bronze — each with its official name, description and grade, a guide in our own words with cited sources, a missable flag, and a tracker that saves in your browser.</p>
+  <div class="progress-wrap">
+    <div class="progress-line"><strong id="progressText">0 of 55 earned</strong><span id="progressPct">0%</span></div>
+    <div class="bar"><div id="progressBar"></div></div>
+    <div class="grade-stats" id="gradeStats"></div>
+  </div>
+  <p class="warn" id="missableBanner">⚠ Only 1 confirmed missable trophy: <strong>Positive Mental Attitude</strong> — meditate at Lucia&rsquo;s balcony spot in Chapter 1 before the chapter ends. Story missions cannot be replayed: keep a manual save at the start of every chapter.</p>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
+
+<nav class="controls" aria-label="Filters and tools">
+  <label>Search <input id="search" type="search" placeholder="Trophy, mission, keyword…"></label>
+  <label>Kind <select id="kind"><option value="all">All kinds</option><option value="story">Story</option><option value="stranger">Stranger</option><option value="collectible">Collectible</option><option value="activity">Activity</option><option value="combat">Combat &amp; robbery</option><option value="exploration">Exploration</option><option value="money">Money</option><option value="secret">Secret</option><option value="completion">100% completion</option><option value="platinum">Platinum</option></select></label>
+  <label>Grade <select id="grade"><option value="all">All grades</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
+  <label>Status <select id="status"><option value="all">All</option><option value="earned">Earned</option><option value="missing">Still missing</option></select></label>
+  <label class="check"><input id="missableOnly" type="checkbox"> Missable only</label>
+  <label class="check"><input id="spoiler" type="checkbox" checked> Spoiler mode: hide story trophies</label>
   <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+  <label class="import">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+  <button id="reset" type="button">Reset</button>
+</nav>
+
+<section id="detail" class="detail" aria-label="Trophy detail">
+  <h2 id="detailTitle">Pick a trophy to read its full guide</h2>
+  <p id="detailMeta" class="meta">Click any trophy card below. The guide, its sources and any missable warning appear here.</p>
+  <p id="detailGuide" class="guide"></p>
+  <p id="detailSources" class="sources"></p>
+</section>
+
+<section id="roadmap" class="roadmap" aria-label="Roadmap to the platinum">
+  <h2>ROADMAP TO THE PLATINUM — 6 PHASES</h2>
+  <p class="roadmap-intro">Play in this order and nothing is left to chance. Phase 1 first: the only missable step in the game lives there.</p>
+  <ol class="phases">
+    <li><strong>Phase 1 — Story, Chapters 1–2 (do the missable first).</strong> Meditate at Lucia&rsquo;s balcony spot in Chapter 1, then finish Chapters 1–2. Earns: Just Like Paradise, Paradise Lost, T**s Ass Drug Money, Trust, plus the first stranger meetings. <em>Save manually at every chapter start — missions cannot be replayed.</em></li>
+    <li><strong>Phase 2 — Story, Chapters 3–4 and the finale.</strong> Finish every chapter and mission trophy (Vice City, Baby!; Top Of The World, Ma; the mission trophies Break the Bank, Family Matters, DWNFALL, Hi-Jacked, Snow Storm) and the final mission gold, You Gotta Know When to Get Off. <em>Save before the final mission.</em></li>
+    <li><strong>Phase 3 — Stranger strands (8 chains).</strong> Finish Andy, Kenton, Billy, Randy and Tyrone plus Bret&rsquo;s hunt and three more strands for the silver Strangers &amp; Freaks. Start strands the moment their markers appear.</li>
+    <li><strong>Phase 4 — Activities &amp; combat.</strong> Gold all 42 Shooting Range challenges (The Shootist), win Top Fun drone races at all 14 spots, win 20 different races, beat Cal at fishing, finish an arcade game and a bowling game, try all 9 activity types, and clear the combat set: Gunslinger (5 in one Combat Focus), the partner robberies, 5 bank vaults, the armored truck, the jewelry store, all 9 gangs&rsquo; operations, 250 stunts.</li>
+    <li><strong>Phase 5 — Collectibles &amp; exploration.</strong> Meditate at the other 17 spots, complete 3 card sets, WAiNK It at 100 locations, discover 100 vehicles, explore all 52 areas of Leonida, buy all 8 garages, register 10 vehicles in Scooter Bros. Sweep region by region — the three map sweeps share one route.</li>
+    <li><strong>Phase 6 — Money &amp; cleanup to 100%.</strong> Launder $250,000 of Marked Bills, spend $100,000 in shops, complete 50 challenges, then check the in-game 100% checklist and mop up the last items for the gold A Long Road — and the platinum, Vice Got a Price!, pops with it.</li>
+  </ol>
+  <p class="roadmap-note">No online trophies. All 55 are single-player and earnable in one playthrough with the Chapter 1 meditation done on time.</p>
+</section>
+
+<main>
+  <p id="countLine" class="count"></p>
+  <div id="list" class="list"></div>
+</main>
+
+<footer>
+  <p>Sources per trophy: PowerPyx, PSNProfiles, Exophase, TrueTrophies, PlayStationTrophies.org, PlanetGTA6, KeenGamer, OutputLag. Guides are written in our own words for this entry; official names, descriptions and grades are as PlayStation publishes them (18 Nov 2026). No Rockstar logo, artwork or game imagery is used. Progress is stored only in this browser (localStorage) and can be exported or imported as JSON.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>

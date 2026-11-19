@@ -1,7 +1,54 @@
-body { font-family: Arial, sans-serif; margin: 24px; color: #222; }
-header { display: flex; justify-content: space-between; align-items: baseline; }
-.controls { display: flex; gap: 16px; margin: 12px 0; align-items: center; }
-.import input { font-size: 12px; }
-table { border-collapse: collapse; width: 100%; }
-th, td { border-bottom: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; white-space: pre-line; }
-th { background: #f2f2f2; }
+/* Vice City neon-sunset theme, CSS only, no external assets. */
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #f5e9d8;
+  background: linear-gradient(180deg, #1a0b2e 0%, #3b1155 34%, #a83a6b 62%, #e86a4a 82%, #f2a65a 100%);
+  background-attachment: fixed;
+}
+.hero { padding: 28px 28px 18px; background: rgba(10, 4, 24, .55); border-bottom: 3px solid #ff2e88; }
+.eyebrow { margin: 0 0 6px; font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #ffd166; }
+h1 { margin: 0; font-size: 44px; letter-spacing: 2px; color: #fff; text-shadow: 0 0 18px #ff2e88, 3px 3px 0 #2ec4ff; }
+h1 span { color: #2ec4ff; }
+.sub { max-width: 980px; font-size: 16px; line-height: 1.5; }
+.progress-wrap { max-width: 980px; }
+.progress-line { display: flex; justify-content: space-between; font-family: Arial, sans-serif; font-size: 15px; }
+.bar { height: 16px; background: rgba(255,255,255,.18); border-radius: 8px; overflow: hidden; margin: 6px 0; }
+#progressBar { height: 100%; width: 0; background: linear-gradient(90deg, #ff2e88, #ffb347, #2ec4ff); }
+.grade-stats { display: flex; gap: 18px; flex-wrap: wrap; font-family: Arial, sans-serif; font-size: 13px; color: #ffe9a8; }
+.warn { max-width: 980px; background: #3d0a1e; border: 2px solid #ff2e88; border-radius: 8px; padding: 10px 12px; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.45; }
+.controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; padding: 14px 28px; background: rgba(10, 4, 24, .72); font-family: Arial, sans-serif; font-size: 13px; position: sticky; top: 0; z-index: 5; }
+.controls label { display: flex; gap: 6px; align-items: center; }
+.controls input[type=search], .controls select { background: #241040; color: #fff; border: 1px solid #ff2e88; border-radius: 6px; padding: 6px 8px; font-size: 13px; }
+.controls button, .controls .import { background: #ff2e88; color: #fff; border: none; border-radius: 6px; padding: 7px 12px; font-size: 13px; cursor: pointer; }
+.controls .import input { display: none; }
+#reset { background: #444; }
+.detail { margin: 18px 28px; scroll-margin-top: 90px; background: rgba(255, 255, 255, .96); color: #1c1030; border-radius: 12px; padding: 18px 22px; border-left: 8px solid #ff2e88; }
+.detail h2 { margin: 0 0 4px; font-size: 24px; }
+.detail .meta { font-family: Arial, sans-serif; font-size: 14px; color: #5a4a6b; margin: 4px 0 10px; }
+.detail .guide { font-size: 17px; line-height: 1.6; margin: 8px 0; }
+.detail .sources { font-family: Arial, sans-serif; font-size: 13px; color: #7a2e8f; }
+.detail .missable-flag { display: inline-block; background: #b00020; color: #fff; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; border-radius: 6px; padding: 4px 10px; margin-top: 6px; }
+.roadmap { margin: 18px 28px; scroll-margin-top: 90px; background: rgba(10, 4, 24, .78); border: 2px solid #2ec4ff; border-radius: 12px; padding: 18px 22px; }
+.roadmap h2 { margin: 0 0 6px; color: #2ec4ff; font-size: 22px; letter-spacing: 1px; }
+.roadmap-intro, .roadmap-note { font-family: Arial, sans-serif; font-size: 14px; line-height: 1.5; }
+.phases { font-size: 15px; line-height: 1.55; padding-left: 22px; }
+.phases li { margin-bottom: 10px; }
+.phases em { color: #ffd166; }
+main { padding: 0 28px 20px; scroll-margin-top: 90px; }
+.count { font-family: Arial, sans-serif; font-size: 14px; color: #ffe9a8; }
+.list { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
+.card { background: rgba(20, 8, 40, .88); border: 1px solid rgba(255, 255, 255, .25); border-radius: 10px; padding: 12px 14px; cursor: pointer; }
+.card:hover, .card.selected { border-color: #ff2e88; box-shadow: 0 0 12px rgba(255, 46, 136, .6); }
+.card.earned { border-color: #2ecc71; }
+.card h3 { margin: 0 0 4px; font-size: 18px; }
+.card h3 .grade { font-family: Arial, sans-serif; font-size: 11px; text-transform: uppercase; vertical-align: middle; background: #ff2e88; border-radius: 4px; padding: 2px 6px; margin-left: 6px; }
+.card h3 .grade.silver { background: #9aa5b1; color: #111; }
+.card h3 .grade.gold { background: #ffb347; color: #111; }
+.card h3 .grade.platinum { background: #2ec4ff; color: #111; }
+.card .desc { font-size: 14px; font-style: italic; color: #d9c8ff; margin: 4px 0 6px; }
+.card .guide-short { font-family: Arial, sans-serif; font-size: 13px; line-height: 1.45; color: #f5e9d8; }
+.card .tags { font-family: Arial, sans-serif; font-size: 12px; color: #ffd166; margin-top: 8px; }
+.card .tags .miss { color: #ff6b6b; font-weight: bold; }
+.card .tick { font-family: Arial, sans-serif; font-size: 13px; }
+.card .tick input { transform: scale(1.3); margin-right: 6px; }
+footer { padding: 16px 28px 28px; font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5; color: #ffe9a8; background: rgba(10, 4, 24, .72); }
